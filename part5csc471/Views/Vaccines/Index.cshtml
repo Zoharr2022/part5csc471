@@ -1,0 +1,61 @@
+﻿@model VaccinesViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-action="Index">
+    <div class="form-group">
+        @Html.LabelFor(model => model.SearchScientName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SearchScientName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SearchScientName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Search" class="btn btn-default btn-primary" />
+        </div>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ScientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dissease)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoDoses)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Vaccines) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dissease)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoDoses)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ScientName">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ScientName">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ScientName">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

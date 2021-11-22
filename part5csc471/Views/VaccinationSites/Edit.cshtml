@@ -1,0 +1,49 @@
+﻿@model part5csc471.Entities.VaccinationSite
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>VaccinationSite</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Name" />
+            <div class="form-group">
+                <label asp-for="AddrStreet" class="control-label"></label>
+                <input asp-for="AddrStreet" class="form-control" />
+                <span asp-validation-for="AddrStreet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddrCity" class="control-label"></label>
+                <input asp-for="AddrCity" class="form-control" />
+                <span asp-validation-for="AddrCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddrState" class="control-label"></label>
+                <input asp-for="AddrState" class="form-control" />
+                <span asp-validation-for="AddrState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddrZip" class="control-label"></label>
+                <input asp-for="AddrZip" class="form-control" />
+                <span asp-validation-for="AddrZip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

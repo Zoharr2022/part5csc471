@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "Server=tcp:part5csc471.database.windows.net,1433;Initial Catalog=part5db;Persist Security Info=False;User ID=part4csc471;Password=Zoie4121harris;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Entities
